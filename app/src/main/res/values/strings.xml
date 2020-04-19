@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">tableHostTEST</string>
+    <string name="home">主页</string>
+    <string name="select">精选</string>
+    <string name="red_packet">特惠</string>
+    <string name="search">搜索</string>
+</resources>

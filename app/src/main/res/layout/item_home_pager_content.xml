@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:gravity="center"
+              android:background="@color/white"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+    <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="10dp"
+            android:src="@mipmap/ic_launcher"
+            android:id="@+id/goods_cover"/>
+    <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+            <TextView
+                    android:id="@+id/goods_title"
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="石墨烯加热眼罩热敷usb充电发热睡觉遮光睡眠男女护眼缓解眼疲劳热眼罩热敷usb充…"
+                    />
+            <TextView
+                    android:id="@+id/goods_off_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shap_tag_bg"
+                    android:textColor="@color/white"
+                    android:padding="2dp"
+                    android:textSize="12sp"
+                    android:text="省15元" />
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                 <TextView
+                         android:text="券后价:¥19.80"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:textColor="@color/colorPrimary"/>
+                 <TextView
+                        android:text="¥25"
+                        android:layout_marginLeft="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorGrey"/>
+                 <TextView
+                        android:text="231人已购买"
+                        android:layout_marginLeft="50dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorGrey"/>
+
+            </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
