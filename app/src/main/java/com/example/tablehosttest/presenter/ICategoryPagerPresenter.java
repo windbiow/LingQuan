@@ -10,14 +10,14 @@ public interface ICategoryPagerPresenter extends BasePresenter<ICategoryPagerCal
     /**
      * 根据分类id获取对应分类内容
      */
-    void getContentById(int materialId);
+    void getContentById(Long materialId);
 
     /**
      * 获取更多信息(下划动作)
      *
      * @param materialId
      */
-    void loadMore(int materialId);
+    void loadMore(Long materialId);
 
     /**
      * 刷新

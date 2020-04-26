@@ -119,8 +119,10 @@ public abstract class BaseFragment extends Fragment {
     //加载数据
     protected  void loadData(){};
 
-
+    //选择根视图
     protected abstract int getRootViewResID();
 
+    //初始化监听行为
+    protected  void initListener(){};
 
 }

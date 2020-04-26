@@ -88,7 +88,7 @@ public class HomePagerContent {
          * zk_final_price : 79.9
          */
 
-        private int category_id;
+        private Long category_id;
         private Object category_name;
         private String click_url;
         private String commission_rate;
@@ -107,7 +107,7 @@ public class HomePagerContent {
         private String level_one_category_name;
         private String nick;
         private String pict_url;
-        private int seller_id;
+        private Long seller_id;
         private String shop_title;
         private SmallImagesBean small_images;
         private String title;
@@ -147,11 +147,11 @@ public class HomePagerContent {
                     '}';
         }
 
-        public int getCategory_id() {
+        public Long getCategory_id() {
             return category_id;
         }
 
-        public void setCategory_id(int category_id) {
+        public void setCategory_id(Long category_id) {
             this.category_id = category_id;
         }
 
@@ -299,11 +299,11 @@ public class HomePagerContent {
             this.pict_url = pict_url;
         }
 
-        public int getSeller_id() {
+        public Long getSeller_id() {
             return seller_id;
         }
 
-        public void setSeller_id(int seller_id) {
+        public void setSeller_id(Long seller_id) {
             this.seller_id = seller_id;
         }
 

@@ -40,17 +40,20 @@
                     android:layout_height="wrap_content">
                  <TextView
                          android:text="券后价:¥19.80"
+                         android:id="@+id/goods_real_price"
                          android:layout_width="wrap_content"
                          android:layout_height="wrap_content"
                          android:textColor="@color/colorPrimary"/>
                  <TextView
                         android:text="¥25"
+                        android:id="@+id/goods_previous_price"
                         android:layout_marginLeft="15dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/colorGrey"/>
                  <TextView
                         android:text="231人已购买"
+                        android:id="@+id/goods_buy_number"
                         android:layout_marginLeft="50dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

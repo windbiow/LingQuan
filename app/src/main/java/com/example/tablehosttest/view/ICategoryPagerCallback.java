@@ -35,7 +35,7 @@ public interface ICategoryPagerCallback extends IBaseCallback{
      * 加载更多 完成
      * @param contents
      */
-    void OnLoadMoreLoaded(List<Categories.DataBean> contents);
+    void OnLoadMoreLoaded(List<HomePagerContent.DataBean> contents);
 
     /**
      * 加载轮播图 完成
@@ -46,6 +46,6 @@ public interface ICategoryPagerCallback extends IBaseCallback{
     /**
      * 获取当前分类id
      */
-    int getMaterialId();
+    Long getMaterialId();
 
 }
