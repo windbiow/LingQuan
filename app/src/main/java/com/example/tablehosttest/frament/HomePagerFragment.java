@@ -1,14 +1,18 @@
 package com.example.tablehosttest.frament;
 
 import android.graphics.Rect;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
@@ -20,6 +24,7 @@ import com.example.tablehosttest.model.domain.HomePagerContent;
 import com.example.tablehosttest.pager.MyBannerPager;
 import com.example.tablehosttest.presenter.ICategoryPagerPresenter;
 import com.example.tablehosttest.presenter.impl.CategoryPagerPresenterImpl;
+import com.example.tablehosttest.scrollview.CustomNestedScrollView;
 import com.example.tablehosttest.util.Constants;
 import com.example.tablehosttest.util.SizeUtils;
 import com.example.tablehosttest.util.ToastUtils;
@@ -44,6 +49,9 @@ public class HomePagerFragment extends BaseFragment implements ICategoryPagerCal
     private BannerPagerAdapter bannerAdapter;
     private LinearLayout banner_point_container;
     private TwinklingRefreshLayout refreshLayout;
+    private LinearLayout home_pager_parent;
+    private CustomNestedScrollView home_page_scroll_view;
+    private RelativeLayout home_page_header_view;
 
     public static HomePagerFragment newInstance(Categories.DataBean category){
         HomePagerFragment homePagerFragment=new HomePagerFragment();
@@ -89,6 +97,11 @@ public class HomePagerFragment extends BaseFragment implements ICategoryPagerCal
         refreshLayout.setEnableLoadmore(true);
         refreshLayout.setEnableRefresh(false);
 
+        //创建主页详细信息父视图对象
+        home_pager_parent = rootView.findViewById(R.id.home_pager_parent);
+        home_page_scroll_view = rootView.findViewById(R.id.home_page_scroll_view);
+        home_page_header_view = rootView.findViewById(R.id.home_page_header_view);
+
         initListener();
     }
 
@@ -100,7 +113,6 @@ public class HomePagerFragment extends BaseFragment implements ICategoryPagerCal
                 //TODO: 点击事件
             }
         });
-
         bannerView.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -129,6 +141,26 @@ public class HomePagerFragment extends BaseFragment implements ICategoryPagerCal
                 }
             }
         });
+
+         //--------------------------------------------------------------------------------------------
+         home_pager_parent.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+             @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+             @Override
+             public void onGlobalLayout() {
+
+                 int headerMeasuredHeight = home_page_header_view.getMeasuredHeight();
+                 home_page_scroll_view.setmHeaderHeight(headerMeasuredHeight);
+
+                 int measuredHeight = home_pager_parent.getMeasuredHeight();
+                 ViewGroup.LayoutParams layoutParams = contentList.getLayoutParams();
+                 layoutParams.height = measuredHeight;
+                 contentList.setLayoutParams(layoutParams);
+                 if(measuredHeight!=0){
+                     home_pager_parent.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                 }
+             }
+         });
+
     }
 
     //轮播图数据

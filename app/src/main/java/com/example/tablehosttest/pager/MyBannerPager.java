@@ -82,7 +82,6 @@ public class MyBannerPager extends ViewPager {
         @Override
         public void run() {
             int currentItem = getCurrentItem();
-            Log.d("looper","currentItem----->"+currentItem);
             currentItem++;
             setCurrentItem(currentItem);
             postDelayed(this,delaytime);

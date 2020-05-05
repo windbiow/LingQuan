@@ -7,6 +7,6 @@ public class UrlUtil {
     }
 
     public static String getCoverPath(String pict_url) {
-        return  "https:"+pict_url;
+        return  "https:"+pict_url+"_200x200.jpg";
     }
 }
