@@ -183,7 +183,8 @@ public class ScrollingUtil {
 
     public static boolean isViewGroupToBottom(ViewGroup viewGroup) {
         View subChildView = viewGroup.getChildAt(0);
-        return (subChildView != null && subChildView.getMeasuredHeight() <= viewGroup.getScrollY() + viewGroup.getHeight());
+        return false;
+//        return (subChildView != null && subChildView.getMeasuredHeight() <= viewGroup.getScrollY() + viewGroup.getHeight());
     }
 
     public static boolean isScrollViewToBottom(ScrollView scrollView) {
